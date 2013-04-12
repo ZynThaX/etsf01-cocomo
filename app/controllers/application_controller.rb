@@ -2,6 +2,18 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   SOFTWARE_PROJECT = { :organic => [3.2, 1.05], :semidetached => [3.0, 1.12], :embedded =>  [2.8, 1.20] }
+  
+  EM = [
+    ["Product reliability and complexity",  0.49,  0.60,  0.83,  1.00,  1.33,  1.91,  2.72],
+    ["Required reusability",  0.95,  1.00,  1.07,  1.15,  1.24],
+    ["Platform difficulty",  0.87,  1.00,  1.29,  1.81,  2.61],
+    ["Personnel capability",  2.12,  1.62,  1.26,  1.00,  0.83,  0.63,  0.50],
+    ["Personnel experience",  1.59,  1.33,  1.12,  1.00,  0.87,  0.74,  0.62],
+    ["Facilities available ",  1.43,  1.30,  1.10,  1.00,  0.87,  0.73,  0.62],
+    ["Schedule pressure ",  1.43,  1.14,  1.00,  1.00,  1.00]
+  ]
+  
+  
   SFS = [ 
     [ "Precedentedness  PREC",            6.20,  4.96,  3.72,  2.48,  1.24,  0.00]
     ["Development/Flexibility  FLEX",     5.07,  4.05,  3.04,  2.03,  1.01,  0.00],
