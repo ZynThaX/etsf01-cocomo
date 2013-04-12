@@ -2,7 +2,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   SOFTWARE_PROJECT = { :organic => [3.2, 1.05], :semidetached => [3.0, 1.12], :embedded =>  [2.8, 1.20] }
-
+  SFS = [ 
+    [ "Precedentedness  PREC",            6.20,  4.96,  3.72,  2.48,  1.24,  0.00]
+    ["Development/Flexibility  FLEX",     5.07,  4.05,  3.04,  2.03,  1.01,  0.00],
+    ["Architecture/Risk Resolution RESL", 7.07,  5.65,  4.24,  2.83,  1.41,  0.00],
+    ["Team Cohesion  TEAM",               5.48,  4.38,  3.29,  2.19,  1.10,  0.00],
+    ["Process Maturity  PMAT",            7.80,  6.24,  4.68,  3.12,  1.56,  0.00]
+  ]
+  
+  
   RATINGS = [
     [0.75, 0.88, 1.00, 1.15, 1.40, 0.00, "Required software reliability"],
     [0.00, 0.94, 1.00, 1.08, 1.16, 0.00, "Size of application database"],
