@@ -1,0 +1,50 @@
+
+<form>
+  <table>
+    <tr>
+      <td>Estimated lines of code:</td>
+      <td><input type="text" name="linesofcode" value="1000" id="linesofcode"></td>
+    </tr>
+  </table>
+
+  <br />
+
+  <table>
+    <% @ratings.each do |row| %>
+      <tr>
+        <td><%= row.last %></td>
+        <td>
+          <select name="rating" id="rating">
+            <% row.each_with_index do |value, i| %>
+              <% if value != 0.00 and i < 6 %>
+                <option <%= 'selected="selected"' if i == 2  %> value="<%=value%>"><%=@rating_headers[i] + " (" + value.to_s + ")" %></option>
+              <% end %>
+            <% end %>
+          </select>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <br />
+  <input type="button" value="Calculate" onclick="calculate_cocomo1();" >
+  <br />
+
+
+  <table>
+    <tr>
+      <th>Calculated effort:</th>
+    </tr>
+    <tr>
+      <td>organic:</td>
+      <td><input type="text" name="organic" value="" id="organic"></td>
+    </tr>
+    <tr>
+      <td>semidetached:</td>
+      <td><input type="text" name="semidetached" value="" id="semidetached"></td>
+    </tr>
+    <tr>
+      <td>embedded:</td>
+      <td><input type="text" name="embedded" value="" id="embedded"></td>
+    </tr>
+  </table>
+</form>

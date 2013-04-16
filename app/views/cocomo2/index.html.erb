@@ -1,0 +1,67 @@
+
+<form>
+  <table>
+    <tr>
+      <td>Estimated lines of code:</td>
+      <td><input type="text" name="linesofcode" value="1000" id="linesofcode"></td>
+    </tr>
+  </table>
+
+  <br />
+
+  <table>
+    <% @sf.each do |row| %>
+      <tr>
+        <td><%= row.first %></td>
+        <td>
+          <select class="sf" name="rating" id="rating1">
+            <% row.each_with_index do |value, i| %>
+              <% if i > 0 %>
+                <option <%= 'selected="selected"' if i == 3  %> value="<%=value%>"><%=@rating_headers[i] + " (" + value.to_s + ")" %></option>
+              <% end %>
+            <% end %>
+          </select>
+        </td>
+      </tr>
+    <% end %>
+
+    <tr><td>&nbsp</td></tr>
+
+    <% @em.each do |row| %>
+      <tr>
+        <td><%= row.first %></td>
+        <td>
+          <select class="em" name="rating" id="rating2">
+            <% row.each_with_index do |value, i| %>
+              <% if value != 0.00 and i > 0 %>
+                <option <%= 'selected="selected"' if i == 4  %> value="<%=value%>"><%=@rating_headers[i-1] + " (" + value.to_s + ")" %></option>
+              <% end %>
+            <% end %>
+          </select>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+
+
+  <select class="type" name="type">
+    <option value="1">Hours</option>
+    <option value="152" selected="selected" >Months</option>
+    <option value="1824">Years</option>
+  </select>
+
+  <br />
+  <input type="button" value="Calculate" onclick="calculate_cocomo2();" >
+  <br />
+
+
+  <table>
+    <tr>
+      <th>Calculated effort:</th>
+    </tr>
+    <tr>
+      <td><input type="text" name="manmonths" value="" id="manmonths"></td>
+    </tr>
+  </table>
+</form>

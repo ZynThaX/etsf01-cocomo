@@ -50,9 +50,10 @@ ETIF01::Application.routes.draw do
   # just remember to delete public/index.html.
 
 
-  resources :cocomo
+  resources :cocomo1
+  resources :cocomo2
 
-  root :to => 'cocomo#index'
+  root :to => 'cocomo2#index'
 
   # See how all your routes lay out with "rake routes"
 

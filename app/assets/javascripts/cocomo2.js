@@ -1,21 +1,25 @@
-function calculate(){
-  var result = 1;
+function calculate_cocomo2(){
 
-  val totalSF = 0.91;
-  val em = 1;
-  $('select > option:selected').each(function() {
-      totalSF = totalSF + 0.01*$(this).data("sf");
-      em = em*$(this).val();
+  var totalSF = 0.91;
+  var em = 1.0;
+
+  $('select.em').each(function(i, obj) {
+    em = em * $(this).val();
   });
+  $('select.sf').each(function(i, obj) {
+    totalSF = totalSF + 0.01 * $(this).val();
+  });
+
+  var result = 1.0;
   
-  val linesOfCode = $("#linesofcode").val()/1000;
-  val size = Math.pow(linesOfCode, totalSF);
-  
-  val pm = 2.94*size*em;
- 
-  alert(pm);
- 
- // $("#organic").val((3.2*Math.pow($("#linesofcode").val()/1000, 1.05)*result).toFixed(2));
-  //$("#semidetached").val((3.0*Math.pow($("#linesofcode").val()/1000, 1.12)*result).toFixed(2));
- // $("#embedded").val((2.8*Math.pow($("#linesofcode").val()/1000, 1.2)*result).toFixed(2));
+  var linesOfCode = $("#linesofcode").val()/1000;
+
+  var size = Math.pow(linesOfCode, totalSF);
+  var type = $(".type").val();
+
+  var pm = 2.94*size*em*152/$(".type").val();
+
+  // alert(pm.toFixed(2));
+
+  $("#manmonths").val(pm.toFixed(2));
 }
