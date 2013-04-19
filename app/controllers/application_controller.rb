@@ -9,10 +9,31 @@ class ApplicationController < ActionController::Base
     ["Platform difficulty",                 0.00,  0.00,  0.87,  1.00,  1.29,  1.81,  2.61],
     ["Personnel capability",                2.12,  1.62,  1.26,  1.00,  0.83,  0.63,  0.50],
     ["Personnel experience",                1.59,  1.33,  1.12,  1.00,  0.87,  0.74,  0.62],
-    ["Facilities available ",               1.43,  1.30,  1.10,  1.00,  0.87,  0.73,  0.62],
-    ["Schedule pressure ",                  0.00,  1.43,  1.14,  1.00,  1.00,  1.00,  0.00]
+    ["Facilities available",                1.43,  1.30,  1.10,  1.00,  0.87,  0.73,  0.62],
+    ["Schedule pressure",                   0.00,  1.43,  1.14,  1.00,  1.00,  1.00,  0.00]
   ]
   
+  
+  
+  PA = [
+    ["Required software reliability",             0.49,  0.60,  0.83,  1.00,  1.33,  1.91,  2.72],
+    ["Database size",                             0.49,  0.60,  0.83,  1.00,  1.33,  1.91,  2.72],
+    ["Documentation match to life-cycle needs",   0.49,  0.60,  0.83,  1.00,  1.33,  1.91,  2.72],
+    ["Product complexity",                        0.49,  0.60,  0.83,  1.00,  1.33,  1.91,  2.72],
+    ["Required reusability",                      0.00,  0.00,  0.95,  1.00,  1.07,  1.15,  1.24],
+    ["Execution time constraint",                 0.00,  0.00,  0.87,  1.00,  1.29,  1.81,  2.61],
+    ["Main storage constraint",                   0.00,  0.00,  0.87,  1.00,  1.29,  1.81,  2.61],
+    ["Platform volatility",                       0.00,  0.00,  0.87,  1.00,  1.29,  1.81,  2.61],
+    ["Analyst capability",                        2.12,  1.62,  1.26,  1.00,  0.83,  0.63,  0.50],
+    ["Application experience",                    1.59,  1.33,  1.12,  1.00,  0.87,  0.74,  0.62],
+    ["Programmer capabilities",                   2.12,  1.62,  1.26,  1.00,  0.83,  0.63,  0.50],
+    ["Platform experience",                       1.59,  1.33,  1.12,  1.00,  0.87,  0.74,  0.62],
+    ["Programming language experience",           1.59,  1.33,  1.12,  1.00,  0.87,  0.74,  0.62],
+    ["Personnel continuity",                      2.12,  1.62,  1.26,  1.00,  0.83,  0.63,  0.50],
+    ["Use of software tools",                     1.43,  1.30,  1.10,  1.00,  0.87,  0.73,  0.62],
+    ["Multisite development",                     1.43,  1.30,  1.10,  1.00,  0.87,  0.73,  0.62],
+    ["Schedile pressure",                         0.00,  1.43,  1.14,  1.00,  1.00,  1.00,  0.00]
+  ]
   
   SF = [ 
     ["Precedentedness  PREC",               6.20,  4.96,  3.72,  2.48,  1.24,  0.00],
@@ -21,8 +42,7 @@ class ApplicationController < ActionController::Base
     ["Team Cohesion  TEAM",                 5.48,  4.38,  3.29,  2.19,  1.10,  0.00],
     ["Process Maturity  PMAT",              7.80,  6.24,  4.68,  3.12,  1.56,  0.00]
   ]
-  
-  
+
   RATINGS = [
     [0.75, 0.88, 1.00, 1.15, 1.40, 0.00, "Required software reliability"],
     [0.00, 0.94, 1.00, 1.08, 1.16, 0.00, "Size of application database"],

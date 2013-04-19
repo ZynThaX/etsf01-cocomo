@@ -9,6 +9,14 @@
 
   <br />
 
+  <select id="type" name="type"  onchange="type_changed()">
+    <option value="app">Application composition</option>
+    <option value="early" selected="selected">Early design</option>
+    <option value="post">Post architecture</option>
+  </select>
+  
+  <br />  <br />
+
   <table>
     <% @sf.each do |row| %>
       <tr>
@@ -28,7 +36,7 @@
     <tr><td>&nbsp</td></tr>
 
     <% @em.each do |row| %>
-      <tr>
+      <tr class="em_selects">
         <td><%= row.first %></td>
         <td>
           <select class="em" name="rating" id="rating2">
@@ -42,10 +50,24 @@
       </tr>
     <% end %>
 
+    <% @pa.each do |row| %>
+      <tr class="pa_selects" style="display: none;">
+        <td><%= row.first %></td>
+        <td>
+          <select class="pa" >
+            <% row.each_with_index do |value, i| %>
+              <% if value != 0.00 and i > 0 %>
+                <option <%= 'selected="selected"' if i == 4  %> value="<%=value%>"><%=@rating_headers[i-1] + " (" + value.to_s + ")" %></option>
+              <% end %>
+            <% end %>
+          </select>
+        </td>
+      </tr>
+    <% end %>
   </table>
 
 
-  <select class="type" name="type">
+  <select class="time" name="time">
     <option value="1">Hours</option>
     <option value="152" selected="selected" >Months</option>
     <option value="1824">Years</option>

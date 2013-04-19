@@ -5,6 +5,7 @@ class Cocomo2Controller < ApplicationController
   def index
     @sf = SF
     @em = EM
+    @pa = PA
     @rating_headers = RATING_HEADERS
     respond_to do |format|
       format.html # index.html.erb

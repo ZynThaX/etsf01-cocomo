@@ -1,11 +1,16 @@
 function calculate_cocomo2(){
-
   var totalSF = 0.91;
   var em = 1.0;
+  var pa = 1.0;
 
   $('select.em').each(function(i, obj) {
     em = em * $(this).val();
   });
+  
+  $('select.pa').each(function(i, obj) {
+    pa = pa * $(this).val();
+  });
+
   $('select.sf').each(function(i, obj) {
     totalSF = totalSF + 0.01 * $(this).val();
   });
@@ -15,11 +20,31 @@ function calculate_cocomo2(){
   var linesOfCode = $("#linesofcode").val()/1000;
 
   var size = Math.pow(linesOfCode, totalSF);
-  var type = $(".type").val();
+  var type = $(".time").val();
 
-  var pm = 2.94*size*em*152/$(".type").val();
+  var pm;
 
-  // alert(pm.toFixed(2));
+  if ($("select#type").val() == "app"){
+    pm = 2.94*size*152/$(".time").val();
+  }else if ($("select#type").val() == "early"){
+    pm = 2.94*size*em*152/$(".time").val();
+  }else{
+    pm = 2.94*size*pa*152/$(".time").val();
+  }
 
   $("#manmonths").val(pm.toFixed(2));
+}
+
+
+function type_changed(){
+  if ($("select#type").val() == "app"){
+    $(".em_selects").hide();
+    $(".pa_selects").hide();
+  }else if ($("select#type").val() == "early"){
+    $(".em_selects").show();
+    $(".pa_selects").hide();
+  }else{
+    $(".em_selects").hide();
+    $(".pa_selects").show();
+  }
 }
