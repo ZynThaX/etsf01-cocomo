@@ -25,11 +25,11 @@ function calculate_cocomo2(){
   var pm;
 
   if ($("select#type").val() == "app"){
-    pm = 2.94*size*152/$(".time").val();
+    pm = 2.94*size*160/$(".time").val();
   }else if ($("select#type").val() == "early"){
-    pm = 2.94*size*em*152/$(".time").val();
+    pm = 2.94*size*em*160/$(".time").val();
   }else{
-    pm = 2.94*size*pa*152/$(".time").val();
+    pm = 2.94*size*pa*160/$(".time").val();
   }
 
   $("#manmonths").val(pm.toFixed(2));
